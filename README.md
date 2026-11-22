@@ -4,7 +4,7 @@
 ## 1. Business/Project Objectives
 Retail businesses need reliable sales forecasts to support inventory planning, resource allocation, and operational decision-making.
 
-This project aims to:
+**This project aims to:**
 -1. Develop a ML model to predict weekly sales for every Store x Department combinations in the next 4 weeks using Historical Sales, Seasonality & underlying Macro-economic trends listed in the dataset
 -2. Uncover any relevant trends/relationships related to weekly sales
 -3. Evaluate the predictive performance of different modeling approaches and identify an appropriate forecasting model.
