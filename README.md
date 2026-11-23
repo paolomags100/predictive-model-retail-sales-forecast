@@ -22,11 +22,13 @@ Dataset Coverage: Jan 2022 - Dec 2024
 -The project follows my structured data science workflow, covering data preparation, exploratory analysis, feature engineering, model development, and evaluation.
 
 ## 4. Data Preparation, Cleaning & Transformation**
--Inspecting dataset granularity
--Discovering any missing values, duplicate records & unusual outliers
+-Inspecting dataset structure, granularity
 -Merging datasets on appropriate keys
+-Discovering and handling datatypes, missing values, duplicate records & unusual outliers
 
-## 5. Initial EDA
+## 5. EDA
+-Only including Relevant finds
+-Understanding the Variables
 
 
 ## 6. Feature Engineering
@@ -35,7 +37,9 @@ Dataset Coverage: Jan 2022 - Dec 2024
 ## 7. Model Results
 -
 
-## 8. Key Insights/Findings
+## 8. Model Evaluation
+
+## 9. Key Insights/Findings
 -These are the patterns i discovered in the data
 
-## 9. Forecasting Dashboard
+## 10. Forecasting Dashboard
