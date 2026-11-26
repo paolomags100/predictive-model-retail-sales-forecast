@@ -56,6 +56,7 @@ Most of my time spent being operating in the mindset of curiosity with these 2 s
 
 ### How is weekly sales data shaped?
 Across volume (distribution)
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/6e87cc35471737a9c5eceec5f8fafa63b4f3821d/images/sales_distribution.png)
 
 Across volume x time (weekly trend)
 
