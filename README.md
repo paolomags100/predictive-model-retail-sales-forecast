@@ -59,9 +59,9 @@ Most of my time spent being operating in the mindset of curiosity with these 2 s
 Three (3) patterns can be said based on my findings on the 'shape' of 
 1. Most weeks have similar sales levels, but a few weeks stand out with much higher sales. This suggests that certain periods bring noticeable spikes in customer demand.
 
-2. Weekly sales tend to follow a recurring pattern across the years, suggesting that demand is influenced by seasonality.
+2. Weekly sales tend to follow a recurring pattern across the years -- always starting Q1 at baseline, then small decline but stable with small fluctations thorughout Q2-Q3 and rising towards Q4. Suggesting a recurring seasonality
 
-3. While the pattern is the same, the timing and direction of some sales spikes differ in 2024 compared to the previous two years, suggesting that seasonal patterns don't always repeat exactly the same. This suggests that certain periods bring noticeable spikes in customer demand. 
+3. While the pattern is the same, when years are overlayed - the timing and direction of some sales spikes differ in 2024 compared to the previous two years, suggesting that seasonal patterns don't always repeat exactly the same. This suggests that certain periods bring noticeable spikes in customer demand. 
 
 **Sales Distribution**
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/6e87cc35471737a9c5eceec5f8fafa63b4f3821d/images/sales_distribution.png)
@@ -74,7 +74,7 @@ Three (3) patterns can be said based on my findings on the 'shape' of
 
 ### How volatile are sales between periods?
 
-The variance/spread in sales remains fairly stable from January to October (CV of 0.76–0.80), but rises noticeably in November and December (CV of 0.83-0.89), suggesting stronger and less predictable sales fluctuations during the holiday season.
+The variance/spread in sales remains relatively high but fairly stable from January to October (CV of 0.76–0.80), but rises noticeably in November and December (CV of 0.83-0.89). This suggests that sales become more volatile during the holiday season.
 
 - *Note: Coefficient of Variance (CV) helps measure sales fluctations relative to their average value, and is expressed in percentage. A CV of 1.0 (100%) indicates very high variability, meaning the values spread are as large as the average itself! If average weekly sales are 10M, a CV of 1.0 is also 10M away from the average.*
 
@@ -104,7 +104,7 @@ And here's the interesting part: sales direction differs in roughly half of comp
 These patterns can be said on the impact of holidays to avg. weekly sales:
 1. Across any kind of holiday that is occuring, the sales are always atleast 50% larger than a non-holiday. And the particular holiday differs in avg. weekly sales, for example Black Friday across all years always contribute the largest sales, while Independence day is the least.
    
-2. While each year may have the same number and type of holiday. 2024 vs. both 2023 and 2022 follow a different holiday duration. What i mean is Black Friday spans two weeks in 2024, while Christmas spans two weeks in 2022 and 2023 but only one week in 2024. This duration was seen to show the pattern that seasonal weekly sales patterns differ YoY
+2. While each year may have the same number and type of holiday. 2024 vs. both 2023 and 2022 follow a different holiday duration. What i mean is Black Friday spans two weeks in 2024, but one week in 2023 and 2022.... while Christmas spans two weeks in 2022 and 2023 but only one week in 2024. This holiday duration is a factor of differing sales patterns YoY
 
 **Holiday vs. Non-Holiday Avg. Weekly Sales (Year)**
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/holiday_vs_non-holiday_sales.png)
@@ -126,12 +126,14 @@ Below shows a pearson correlation matrix of weekly sales change vs. changes in t
 **Pearson Correlation Matrix**
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/pearson_correlation_matrix.png)
 
-![image_alt]()
-
+*A flat horizontal red line signifies a weak correlation*
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/0b8c0e7b2143ca9706ef7a225b6b45b0a0608a72/images/pearson_correlation_scatter.png)
 
 
 ## 6. Key Feature Candidates
--These are the features I used for the final ML Model. Later on it i'll go what didn't work
+-From all of the potential predictive signals I discovered from analyzing patterns and variables, these are the type of features I decided to split
+
+These are were the final features used after several experimentations. Later on it i'll go what didn't work and try to rationalize them
 
 ## 7. Model Train-Test Split for Forecasting
 - Leakage prevetion
