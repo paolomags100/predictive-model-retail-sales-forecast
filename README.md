@@ -197,23 +197,90 @@ y_train, y_test = y.iloc[:split_index], y.iloc[split_index:]
 
 ## 8. Model Experimentation & Results
 
-I ran two models to compare actual vs. predicted sales. The model aims to predict future demand for this retail sales company for the next 5-6 months. A good model should capture both direction and volume of future demand. Furthermore, success was based on these performance metrics /
+I ran two models to compare actual vs. predicted sales. As mentioned in the first objective, this model should aim to predict future demand for this retail sales company for the next 5-6 months. A good model should be able to capture both direction and volume of future demand on unforeseen data. 
 
-WAPE
+The two models I ran the prediction experiments are:
+1. **Linear Regression Model** - Uses coefficients to understand how each feature contributes to sales, combining these relationships to generate a forecast.
 
-Error Tolerance
+2. **XGBoost** - Builds multiple decision trees that learn from patterns in the data and adjust for previous prediction errors to improve the forecast.
 
-$R^2$
+The model with the more reliable predictions per our success metrics will be then chosen our 'Champion Model' 
 
-**Comparing the Two Models Score**
+ Further analysis of the 'Champion Model' are *features importance* and *residual errors* and will be shown below
 
-**Some further experiments on these features (dont show) but affected**
+--- 
+
+### Measuring Model Succcess 
+We will measure the success based on these performance metrics:
+
+**1. Weighted Absolute Percentage Error (WAPE)** – Measures the overall prediction error relative to actual sales, giving us a better sense of how far off the model's forecasts are. <span style="color:green">*(e.g. WAPE = 4.5%)*</span>. The lower the better.
+
+**2. Error Tolerance** – Measures the percentage of weekly predictions that fall within ±5% of actual sales. This helps determine how consistently the model gets close to the actual numbers. <span style="color:green">*(e.g. 85% of weeks within ±5%)*</span>. The higher the better.
+
+**3. R² (Coefficient of Determination)** – Measures how much of the variation in actual weekly sales the model can explain. <span style="color:green">*(e.g. R² = 0.95)*</span>. The higher the better.
+
+*Other supporting metrics include:*
+
+**4. RMSE (Root Mean Squared Error)** – Measures prediction errors while placing more weight on larger misses, making it useful for identifying cases where the model significantly under- or overpredicts. <span style="color:green">*(e.g. RMSE = 1.3M)*</span>. The lower the better.
+
+**5. MAE (Mean Absolute Error)** – Measures the average absolute difference between predicted and actual sales, giving us a straightforward view of how far off our predictions are. <span style="color:green">*(e.g. MAE = 1.0M)*</span>. The lower the better.
+
+---- 
+### Comparing the Two Models Score
+
+Model A: Linear Regression
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/final_model_LR.png)
+
+Model B: XGBoost
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_xgboost.png)
 
 
+Both models provided excellent scores, both meeting the minimum performance success metrics. Here's an overlay view of predicted sales vs. actual sales
 
-- Model A: Linear Regression
-- Model B: XGBoost
-- Model Comparison
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_line_overlay.png)
+
+However comparing the 2 scores -- Model A exhibited better scores overall across all metrics
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Model A</th>
+    <th>Model B</th>
+  </tr>
+  <tr>
+    <td>MAE</td>
+    <td><span style="color:#90EE90">1,043,980.61</span></td>
+    <td>1,194,228.55</td>
+  </tr>
+  <tr>
+    <td>MAE %</td>
+    <td><span style="color:#90EE90">1.77%</span></td>
+    <td>2.02%</td>
+  </tr>
+  <tr>
+    <td>RMSE</td>
+    <td><span style="color:#90EE90">1,307,911.86</span></td>
+    <td>2,442,527.64</td>
+  </tr>
+  <tr>
+    <td>RMSE %</td>
+    <td><span style="color:#90EE90">2.21%</span></td>
+    <td>4.13%</td>
+  </tr>
+  <tr>
+    <td>WAPE %</td>
+    <td><span style="color:#90EE90">1.77%</span></td>
+    <td>2.02%</td>
+  </tr>
+  <tr>
+    <td>R²</td>
+    <td><span style="color:#90EE90">0.99</span></td>
+    <td>0.98</td>
+  </tr>
+</table>
+
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_metrics_comparison.png)
+
+### Features that didn't make the cut
 
 ## 9. Champion Model: Feature Importance
 - Shows what features the model finds important and less important. Interpretation
