@@ -124,6 +124,7 @@ The Pearson correlation matrix below shows very weak correlations between weekly
 *Note: A person correlation matrix measures the strength between 2 variables, with values ranging from -1 to 1. The closer it is to -1 or 1 implies a strong relationship between the variables. A statistic of 0.05 implies a very weak relationship -- note that correlation is different from causation*
 
 **Pearson Correlation Matrix**
+
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/pearson_correlation_matrix.png)
 
 *A flat horizontal red line signifies a weak correlation*
@@ -235,16 +236,16 @@ Model B: XGBoost
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_xgboost.png)
 
 
-Both models provided excellent scores, both meeting the minimum performance success metrics. Here's an overlay view of predicted sales vs. actual sales
+Both models provided excellent scores, both meeting the minimum performance success metrics. And visually both look similar. Here's an overlay view of predicted sales vs. actual sales
 
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_line_overlay.png)
 
-However comparing the 2 scores -- Model A exhibited better scores overall across all metrics
+However comparing the 2 scores -- Model A exhibited better scores overall across all metrics -- making this our ***Champion Model*** !!
 <table>
   <tr>
     <th>Metric</th>
-    <th>Model A</th>
-    <th>Model B</th>
+    <th>Model A: Linear Regression</th>
+    <th>Model B: XGBoost</th>
   </tr>
   <tr>
     <td>MAE</td>
