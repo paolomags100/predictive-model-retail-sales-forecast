@@ -115,11 +115,11 @@ These patterns can be said on the impact of holidays to avg. weekly sales:
 **Sales Impact by Holiday Name (Year)**
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/holiday_sales_year.png)
 
-### How do changes in factors like unemployment, cpi and promotional markdowns affect weekly sales changes?
+### How do changes in factors like temperature, unemployment, cpi and promotional markdowns affect weekly sales changes?
 
-Other factors like the changes in unemployment, cpi and promotional markdowns through time surprisiginly didn't have a significant effect on the changes to sales in between week periods. 
+Other factors, such as changes in unemployment, CPI, and promotional markdowns, surprisingly showed little relationship with week-to-week sales changes. Temperature was the exception, showing a slightly stronger correlation.
 
-Below shows a pearson correlation matrix of weekly sales change vs. changes in these factors. Results imply that there's a very weak correlation to changes in these factors vs. changes in weekly sales. (less than >)
+The Pearson correlation matrix below shows very weak correlations between weekly sales changes and most of these factors (around ±0.03), while temperature changes showed a somewhat stronger relationship (around ±0.07).
 
 *Note: A person correlation matrix measures the strength between 2 variables, with values ranging from -1 to 1. The closer it is to -1 or 1 implies a strong relationship between the variables. A statistic of 0.05 implies a very weak relationship -- note that correlation is different from causation*
 
