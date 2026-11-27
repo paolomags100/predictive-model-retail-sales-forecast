@@ -197,13 +197,19 @@ y_train, y_test = y.iloc[:split_index], y.iloc[split_index:]
 
 ## 8. Model Experimentation & Results
 
-I ran two models to compare actual vs. predicted sales. A good model captures both direction and volume of future demand. I was measuring success based on these performance metrics /
+I ran two models to compare actual vs. predicted sales. The model aims to predict future demand for this retail sales company for the next 5-6 months. A good model should capture both direction and volume of future demand. Furthermore, success was based on these performance metrics /
 
-WAPE, Error Tolerance
+WAPE
+
+Error Tolerance
+
+$R^2$
+
+**Comparing the Two Models Score**
+
+**Some further experiments on these features (dont show) but affected**
 
 
-
-Some further experiments on these features (dont show) but affected
 
 - Model A: Linear Regression
 - Model B: XGBoost
