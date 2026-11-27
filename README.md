@@ -106,22 +106,28 @@ These patterns can be said on the impact of holidays to avg. weekly sales:
    
 2. While each year may have the same number and type of holiday. 2024 vs. both 2023 and 2022 follow a different holiday duration. What i mean is Black Friday spans two weeks in 2024, while Christmas spans two weeks in 2022 and 2023 but only one week in 2024. This duration was seen to show the pattern that seasonal weekly sales patterns differ YoY
 
-**Holiday vs. Non-Holiday Avg. Weekly Sales**
-
+**Holiday vs. Non-Holiday Avg. Weekly Sales (Year)**
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/holiday_vs_non-holiday_sales.png)
 
 **Count of Holidays per Year**
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/holiday_count_year.png)
 
-
-**Holiday Name Sales Impact**
-
+**Sales Impact by Holiday Name (Year)**
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/holiday_sales_year.png)
 
 ### How do changes in factors like unemployment, cpi and promotional markdowns affect weekly sales changes?
 
-Other factors like the changes in unemployment, cpi and promotional markdowns through time surprisiginly didn't have much of an effect on weekly sales. 
+Other factors like the changes in unemployment, cpi and promotional markdowns through time surprisiginly didn't have a significant effect on the changes to sales in between week periods. 
 
 Below shows a pearson correlation matrix of weekly sales change vs. changes in these factors. Results imply that there's a very weak correlation to changes in these factors vs. changes in weekly sales. (less than >)
 
 *Note: A person correlation matrix measures the strength between 2 variables, with values ranging from -1 to 1. The closer it is to -1 or 1 implies a strong relationship between the variables. A statistic of 0.05 implies a very weak relationship -- note that correlation is different from causation*
+
+**Pearson Correlation Matrix**
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/pearson_correlation_matrix.png)
+
+![image_alt]()
+
 
 
 ## 6. Key Feature Candidates
