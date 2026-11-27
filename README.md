@@ -125,10 +125,10 @@ The Pearson correlation matrix below shows very weak correlations between weekly
 
 **Pearson Correlation Matrix**
 
-![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/c43a4a45df81a197afcc20074708d0c3a6ef93b5/images/pearson_correlation_matrix.png)
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/84469fd21194c70b25b41cff875bb510c2f6095d/images/pearson_correlation_matrix.png)
 
 *A flat horizontal red line signifies a weak correlation*
-![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/0b8c0e7b2143ca9706ef7a225b6b45b0a0608a72/images/pearson_correlation_scatter.png)
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/84469fd21194c70b25b41cff875bb510c2f6095d/images/pearson_correlation_scatter.png)
 
 
 ## 6. Key Feature Candidates
@@ -205,9 +205,9 @@ The two models I ran the prediction experiments are:
 
 2. **XGBoost** - Builds multiple decision trees that learn from patterns in the data and adjust for previous prediction errors to improve the forecast.
 
-The model with the more reliable predictions per our success metrics will be then chosen our 'Champion Model' 
+The model with the more reliable predictions per our success metrics will be then chosen as our 'Champion Model' 
 
- Further analysis of the 'Champion Model' are *features importance* and *residual errors* and will be shown below
+ Further analysis of the 'Champion Model' performance are the *features importance* and *residual errors* and will be in its corresponding sections below
 
 --- 
 
@@ -281,7 +281,17 @@ However comparing the 2 scores -- Model A exhibited better scores overall across
 
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/24b803cacb1f015e2ada5a0b94edf8d2c608ce36/images/model_metrics_comparison.png)
 
-### Features that didn't make the cut
+### Other predictive signals / features experimented, but didn't make the final list
+Here are some features I experimented with that ended up reducing predictive performance. I took a guess at why they didn't work as well based on the results and patterns I observed.
+
+*Note: These are just my best guesses and interpretations of the results, not definitive explanations.*
+
+- **rolling_min_4** – I thought capturing the lowest sales in the past four weeks might help, but it didn't seem to add much beyond the other rolling features.
+- **week_of_year, month, quarter** – My guess is that `week_sin` and `week_cos` did a better job of capturing seasonality than using calendar values directly.
+- **sales_lag_52** – Last year's sales weren't always a reliable reference since weekly patterns didn't consistently repeat across years.
+- **temp_change_1w** – The actual temperature seemed to provide more useful information than how much it changed from the previous week.
+- **sales_change_1w** – My guess is that the raw change in sales wasn't as useful on its own, but combining momentum with seasonal features helped capture the pattern better.
+
 
 ## 9. Champion Model: Feature Importance
 - Shows what features the model finds important and less important. Interpretation
