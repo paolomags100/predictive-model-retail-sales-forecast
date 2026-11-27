@@ -153,7 +153,7 @@ I first ensured that the dataset was aggregated into total weekly sales, droppin
 
 Before the actual modelling, I split my model dataset into an 80/20 train-test split. This is a good approach for forecasting as it allows the model to learn from historical data (80%) and evaluate how well it predicts future, unseen data (20%).
 
-![image_alt]
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/366bb63eb51e04ce91dd2c90921fc1f9aef7d522/images/model_split.png)
 
 ### Important: Leakage Prevention
 *Context: Leakage is a term used to describe when information from the test set or future data accidentally makes its way into the training process, giving the model an unfair advantage and making its predictions look better than they actually are.*
@@ -196,13 +196,21 @@ y_train, y_test = y.iloc[:split_index], y.iloc[split_index:]
 ```
 
 ## 8. Model Experimentation & Results
-** What worked (80%) and didn't work (20%)
+
+I ran two models to compare actual vs. predicted sales. A good model captures both direction and volume of future demand. I was measuring success based on these performance metrics /
+
+WAPE, Error Tolerance
+
+
+
+Some further experiments on these features (dont show) but affected
+
 - Model A: Linear Regression
 - Model B: XGBoost
 - Model Comparison
 
 ## 9. Champion Model: Feature Importance
-- Interpretation
+- Shows what features the model finds important and less important. Interpretation
 
 ## 10. Champion Model: Residual Analysis
 - Reveal struggles in model
