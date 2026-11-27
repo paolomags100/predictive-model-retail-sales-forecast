@@ -74,9 +74,9 @@ Three (3) patterns can be said based on my findings on the 'shape' of
 
 ### How volatile are sales between periods?
 
-Sales variability remains fairly stable from January to October (CV of 0.76–0.80), but rises noticeably in November and December (CV of 0.83-0.89), suggesting stronger and less predictable sales fluctuations during the holiday season.
+The variance/spread in sales remains fairly stable from January to October (CV of 0.76–0.80), but rises noticeably in November and December (CV of 0.83-0.89), suggesting stronger and less predictable sales fluctuations during the holiday season.
 
-- *Coefficient of Variance (CV) = sales fluctations relative to their average, expressed in percentage. A CV of 1.0 (100%) indicates very high variability that it means the values spread are as large as the average itself! If average weekly sales are 10M, a CV of 1.0 is also 10M away from the average.*
+- *Note: Coefficient of Variance (CV) helps measure sales fluctations relative to their average value, and is expressed in percentage. A CV of 1.0 (100%) indicates very high variability, meaning the values spread are as large as the average itself! If average weekly sales are 10M, a CV of 1.0 is also 10M away from the average.*
 
 **Variability by Quarter & Month for each year**
 ![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/e77f8a2234b6f667ce574278fc7ec2aac67d761f/images/cv_by_quarter.png)
@@ -95,16 +95,34 @@ To put some numbers behind what I was seeing, I compared how often weekly sales 
 And here's the interesting part: sales direction differs in roughly half of comparable weeks across years! In other words, while the bigger seasonal patterns may look familiar, the week-to-week ride can be a very different story each year.
 
 **Comparison of Weekly Sales Momentum per year**
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/ff9ea1f684678034ea1f9ec36df10e4db80ee7d6/images/weekl_sales_momentum_difference_by_year.png)
+
+![image_alt](https://github.com/paolomags100/predictive-model-retail-sales-forecast/blob/ff9ea1f684678034ea1f9ec36df10e4db80ee7d6/images/momentum_text_difference.png)
 
 ### How do holidays impact weekly sales?
-Impact of Holidays (sales on avg.)
 
-Holiday Differences per year
+These patterns can be said on the impact of holidays to avg. weekly sales:
+1. Across any kind of holiday that is occuring, the sales are always atleast 50% larger than a non-holiday. And the particular holiday differs in avg. weekly sales, for example Black Friday across all years always contribute the largest sales, while Independence day is the least.
+   
+2. While each year may have the same number and type of holiday. 2024 vs. both 2023 and 2022 follow a different holiday duration. What i mean is Black Friday spans two weeks in 2024, while Christmas spans two weeks in 2022 and 2023 but only one week in 2024. This duration was seen to show the pattern that seasonal weekly sales patterns differ YoY
 
-Sales impact of different holidays
+**Holiday vs. Non-Holiday Avg. Weekly Sales**
+
+
+**Count of Holidays per Year**
+
+
+**Holiday Name Sales Impact**
+
 
 ### How do changes in factors like unemployment, cpi and promotional markdowns affect weekly sales changes?
-correlation
+
+Other factors like the changes in unemployment, cpi and promotional markdowns through time surprisiginly didn't have much of an effect on weekly sales. 
+
+Below shows a pearson correlation matrix of weekly sales change vs. changes in these factors. Results imply that there's a very weak correlation to changes in these factors vs. changes in weekly sales. (less than >)
+
+*Note: A person correlation matrix measures the strength between 2 variables, with values ranging from -1 to 1. The closer it is to -1 or 1 implies a strong relationship between the variables. A statistic of 0.05 implies a very weak relationship -- note that correlation is different from causation*
+
 
 ## 6. Key Feature Candidates
 -These are the features I used for the final ML Model. Later on it i'll go what didn't work
