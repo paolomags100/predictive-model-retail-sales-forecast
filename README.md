@@ -131,13 +131,69 @@ The Pearson correlation matrix below shows very weak correlations between weekly
 
 
 ## 6. Key Feature Candidates
--From all of the potential predictive signals I discovered from analyzing patterns and variables, these are the type of features I decided to split
+Gathering all my insights, I produced 20 total different features and I've decided to group my predictive signals(features) candidates into these 5 different groupings based on purpose:
 
-These are were the final features used after several experimentations. Later on it i'll go what didn't work and try to rationalize them
+Ultimately, these were the final features used on the model after several experimentations. 
+
+Later, in the ***Model Experimentation & Results*** section, I'll revisit some of the features that didn't make the final cut, and infer what made them worsed the model.
+
+*Note: `holiday_name` was converted into 5 separate binary features using a method called **one-hot encoding**, with each feature representing a different holiday. For example, `holiday_Christmas` is assigned a value of 1 or 0 depending on whether the week corresponds to Christmas.*
+
+| Feature Group | Features |
+|---|---|
+| **Historical Lags & Rolling Statistics** | `sales_lag_1`, `sales_lag_2`, `sales_lag_3`, `sales_lag_4`, `rolling_mean_4`, `rolling_std_4`, `rolling_max_4` |
+| **Seasonality** | `week_sin`, `week_cos` |
+| **Directional & Momentum Shifts** | `lag1_week_sin`, `lag1_week_cos`, `momentum_week_sin`, `momentum_week_cos` |
+| **Holiday Indicators** | `is_holiday`, `holiday_name` *(one-hot encoded)* |
+| **Others** | `temperature` |
 
 ## 7. Model Train-Test Split for Forecasting
-- Leakage prevetion
-- 80/20 split and strategy
+
+I first ensured that the dataset was aggregated into total weekly sales, dropping `store_id` and `department` since the objective was to forecast overall sales rather than individual store or department performance.
+
+Before the actual modelling, I split my model dataset into an 80/20 train-test split. This is a good approach for forecasting as it allows the model to learn from historical data (80%) and evaluate how well it predicts future, unseen data (20%).
+
+![image_alt]
+
+### Important: Leakage Prevention
+*Context: Leakage is a term used to describe when information from the test set or future data accidentally makes its way into the training process, giving the model an unfair advantage and making its predictions look better than they actually are.*
+
+Important here was to preserve the chronological order of the data and avoid data leakage. I trained the model on earlier weeks and reserved the later weeks for testing, rather than randomly shuffling the data.
+
+*Note: The code snippets below are combined into one full script in my Jupyter Notebook. To run and test the complete workflow, simply run the notebook.*
+```python
+# Aggregate and sort data before splitting
+weekly_data = (
+    retail_sales.groupby('date')
+    .agg({
+        'weekly_sales': 'sum',
+        'is_holiday': 'max',
+        'temperature': 'mean'
+    })
+    .sort_index()
+)
+
+# Define X and y
+feature_cols = [
+    'sales_lag_1', 'sales_lag_2', 'sales_lag_3', 'sales_lag_4',
+    'rolling_mean_4', 'rolling_std_4', 'rolling_max_4', 
+    'is_holiday', 'week_sin', 'week_cos',
+    'lag1_week_sin', 'lag1_week_cos',
+    'momentum_week_sin', 'momentum_week_cos',
+    'temperature'
+] + holiday_dummies.columns.tolist()
+
+weekly_data = weekly_data.dropna(subset=feature_cols)
+
+X = weekly_data[feature_cols]
+y = weekly_data['weekly_sales']
+
+# Chronological 80/20 split
+split_index = int(len(weekly_data) * 0.8)
+
+X_train, X_test = X.iloc[:split_index], X.iloc[split_index:]
+y_train, y_test = y.iloc[:split_index], y.iloc[split_index:]
+```
 
 ## 8. Model Experimentation & Results
 ** What worked (80%) and didn't work (20%)
